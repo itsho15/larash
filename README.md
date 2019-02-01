@@ -15,6 +15,9 @@ WP Lumen Plugin Framework provides an architecture that allows rapid development
 * Database Table Mangement (wee wiki example)
 * Activate, Deactive, Uninstall Schema Integration
 * JSON Config Flat-File Store
+* CodeStar Framework for theme options
+* Custom Post types
+* Custom Taxonomy
 
 ## Setup
 
