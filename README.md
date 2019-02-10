@@ -1,4 +1,4 @@
-# WP Lumen Plugin Framework Starter
+# Larash Plugin Framework Starter
 
 ##### A Laravel Inspired Wordpress Plugin Framework built with Lumen Framework
 
