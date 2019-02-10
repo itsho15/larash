@@ -7,6 +7,10 @@ WP Lumen Plugin Framework provides an architecture that allows rapid development
 <div align="center">
     <img src="resources/assets/screenshots/preview.png" </img> 
 </div>
+## Metabox Screenshot:
+<div align="center">
+    <img src="resources/assets/screenshots/metabox.png" </img> 
+</div>
 
 ## Includes:
 * WP Models
