@@ -4,9 +4,9 @@
 
 WP Lumen Plugin Framework provides an architecture that allows rapid development of Wordpress plugins where speed and dexterity is preferred over native Wordpress methods. This codebase is built with Laravel's "Lumen" micro-framework.  Help WP Lumen Plugin Framework's development by contributing to the repository and reporting problems encountered.
 
-![](https://raw.github.com/itsho15/larash/resources/assets/screenshots/preview.png)
-
-
+<div align="center">
+    <img src="resources/assets/screenshots/preview.png" width="400px"</img> 
+</div>
 
 ## Includes:
 * WP Models
