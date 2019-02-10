@@ -23,11 +23,33 @@ class WordpressServiceProvider extends ServiceProvider {
 	 * @return void
 	 */
 	public function register() {
-		/** Add Plugin Links to Admin > Plugins Page Entry **/
-		$this->wpHelper
-			->addPluginLinks(array(
-				'<a target="_blank" href="http://bayareawebpro.com">Developer</a>',
-			));
+		/*
+			|--------------------------------------------------------------------------
+			| Codestar Framework option pages
+			|--------------------------------------------------------------------------
+			|
+		*/
+
+		if (!class_exists('CSF')) {
+			$this->wpHelper->WpRegister('plugins/codestar/codestar-framework');
+			$this->wpHelper->WpRegister('plugins/codestar/config');
+		}
+		/*
+			|--------------------------------------------------------------------------
+			| visualcomposer
+			|--------------------------------------------------------------------------
+			|
+		*/
+		$this->wpHelper->WpRegister('plugins/visualcomposer/Vc');
+
+		/*
+			|--------------------------------------------------------------------------
+			| Metaboxes
+			|--------------------------------------------------------------------------
+			|
+		*/
+		$this->wpHelper->WpRegister('plugins/meta-box/meta-box');
+		$this->wpHelper->WpRegister('plugins/meta-box/metaboxes-config');
 
 		/** Add FrontEnd Widget **/
 		$this->wpHelper
@@ -74,33 +96,6 @@ class WordpressServiceProvider extends ServiceProvider {
 				}
 			);
 
-		/** Add MetaBoxes **/
-		$this->wpHelper
-			->addMetaBox(
-				'example_meta_box',
-				'Example Meta Box',
-				function ($post, $metabox_attributes) {
-					$this->lumenHelper
-						->response($this->app->call('\App\Http\Controllers\ExampleMetaBoxController@template', compact('post', 'metabox_attributes')))
-						->sendContent();
-				},
-				'post',
-				'normal',
-				'default',
-				2
-			)
-			->addAction(
-				'save_post',
-				function ($post_id, $post, $update) {
-					if ($post->post_type == 'post') {
-						$this->app->make('cache')->flush();
-						$this->app->call('\App\Http\Controllers\ExampleMetaBoxController@save', compact('post_id', 'post', 'update'));
-					}
-				},
-				10,
-				3
-			);
-
 		/** Add Nav Menu MetaBoxes **/
 		$this->wpHelper->addMetaBox(
 			'example_menu_meta_box',
@@ -117,16 +112,44 @@ class WordpressServiceProvider extends ServiceProvider {
 		);
 
 		/** Add Dashboard Widget **/
+
 		$this->wpHelper
-			->addDashboardWidget(
-				'example_admin_widget',
-				'Example Admin Widget',
+			->addAdminPanel(
+				'lumen_page',
+				'Larash',
+				'Larash',
 				function () {
 					$this->lumenHelper
-						->response($this->app->call('\App\Widgets\ExampleAdminWidget@template'))
+						->response($this->lumenHelper->view('admin-intro'))
 						->sendContent();
-				}
-			);
+				},
+				'manage_options',
+				'',
+				null
+			)
+			->addAdminSubPanel(
+				'lumen_page',
+				'lumen_sub_page',
+				'WpPost Demo',
+				'WpPost Demo',
+				function () {
+					$this->lumenHelper
+						->response($this->app->call('\App\Http\Controllers\ExampleAdminController@template'))
+						->sendContent();
+				},
+				'manage_options'
+			)->addAdminSubPanel(
+			'lumen_page',
+			'lumen_settings',
+			'Settings',
+			'Settings',
+			function () {
+				$this->lumenHelper
+					->response($this->app->call('\App\Http\Controllers\SettingsController@template'))
+					->sendContent();
+			},
+			'manage_options'
+		);
 
 		/** Add WP Rest API Route **/
 //        $this->wpHelper

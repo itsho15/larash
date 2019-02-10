@@ -24,6 +24,8 @@
  */
 putenv('APP_ENV=production');
 putenv('APP_DEBUG=true');
+
+define('LARASH_PATH', plugin_dir_path(__FILE__));
 /*
 |--------------------------------------------------------------------------
 | Create The Application
@@ -56,20 +58,3 @@ if (!function_exists('wpLumen')) {
 		return \App\Helpers\LumenHelper::plugin($namespace);
 	}
 }
-/*
-|--------------------------------------------------------------------------
-| Codestar Framework option pages
-|--------------------------------------------------------------------------
-|
- */
-if (!class_exists('CSF')) {
-	require_once plugin_dir_path(__FILE__) . '/plugins/codestar/codestar-framework.php';
-	require_once plugin_dir_path(__FILE__) . '/plugins/codestar/config.php';
-}
-/*
-|--------------------------------------------------------------------------
-| visualcomposer
-|--------------------------------------------------------------------------
-|
- */
-require_once plugin_dir_path(__FILE__) . '/plugins/visualcomposer/Vc.php';

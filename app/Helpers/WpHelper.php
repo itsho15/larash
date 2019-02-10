@@ -14,6 +14,15 @@ class WpHelper {
 	}
 
 	/**
+	 * get config file
+	 * @param string $filename
+	 * @return self
+	 */
+	public function WpRegister($filename) {
+		return require_once LARASH_PATH . $filename . ".php";
+	}
+
+	/**
 	 * Adds Page to a WordPress NavMenu
 	 * @param int $page_id (The ID of the page you want to add)
 	 * @param string $page_title (Title of menu item)
@@ -185,18 +194,20 @@ class WpHelper {
 	 * @param string|array $capability
 	 * @return self
 	 */
-	public function addAdminPanel($menu_slug, $menu_title, $page_title, $closure, $capability = array('manage_options')) {
+	public function addAdminPanel($menu_slug, $menu_title, $page_title, $closure, $capability = array('manage_options'), $icon_url, $position) {
 		if (!is_admin()) {
 			return $this;
 		}
 
-		add_action('admin_menu', function () use ($menu_slug, $page_title, $menu_title, $capability, $closure) {
+		add_action('admin_menu', function () use ($menu_slug, $page_title, $menu_title, $capability, $closure, $icon_url, $position) {
 			add_menu_page(
-				$page_title,
+				__($page_title, 'textdomain'),
 				$menu_title,
 				$capability,
 				$menu_slug,
-				$closure
+				$closure,
+				$icon_url,
+				$position
 			);
 		});
 		return $this;
@@ -272,10 +283,17 @@ class WpHelper {
 	 * @param string $media [all|screen|print]
 	 * @return self
 	 */
-	public function enqueueStyle($handle, $src, $dependencies = array(), $version = '1.0.0', $media = 'all') {
-		add_action('wp_enqueue_scripts', function () use ($handle, $src, $dependencies, $version, $media) {
-			wp_enqueue_style($handle, $src, $dependencies, $version, $media);
-		});
+	public function enqueueStyle($handle, $src, $dependencies = array(), $version = '1.0.0', $media = 'all', $admin = null) {
+		if ($admin == null || $admin == 'front-end') {
+			add_action('wp_enqueue_scripts', function () use ($handle, $src, $dependencies, $version, $media) {
+				wp_enqueue_style($handle, $src, $dependencies, $version, $media);
+			});
+		} else {
+			add_action('admin_enqueue_scripts', function () use ($handle, $src, $dependencies, $version, $media) {
+				wp_enqueue_style($handle, $src, $dependencies, $version, $media);
+			});
+		}
+
 		return $this;
 	}
 	/**
@@ -287,13 +305,51 @@ class WpHelper {
 	 * @param boolean $inFooter
 	 * @return self
 	 */
-	public function enqueueScript($handle, $src, $dependencies = array(), $version = '1.0.0', $inFooter = true) {
+	public function enqueueScript($handle, $src, $dependencies = array(), $version = '1.0.0', $inFooter = true, $admin = null) {
 
-		add_action('wp_enqueue_scripts', function () use ($handle, $src, $dependencies, $version, $inFooter) {
-			wp_enqueue_script($handle, $src, $dependencies, $version, $inFooter);
-		});
+		if ($admin == null || $admin == 'front-end') {
+			add_action('wp_enqueue_scripts', function () use ($handle, $src, $dependencies, $version, $inFooter) {
+				wp_enqueue_script($handle, $src, $dependencies, $version, $inFooter);
+			});
+		} else {
+			add_action('admin_enqueue_scripts', function () use ($handle, $src, $dependencies, $version, $inFooter) {
+				wp_enqueue_script($handle, $src, $dependencies, $version, $inFooter);
+			});
+		}
 		return $this;
 	}
+
+	public function AddTabsPanel($navlinks = array(), $titleHeader = null, $pagename, $default, $callbackfunction) {
+
+		$active_tab = isset($_GET['tab']) ? $_GET['tab'] : $default;
+
+		?>
+	    <!-- Create a header in the default WordPress 'wrap' container -->
+	    <div class="wrap">
+
+        <div id="icon-themes" class="icon32"></div>
+
+        <?php if ($titleHeader != null) {
+			echo "<h2>{$titleHeader}</h2>";
+		}
+		?>
+
+        <?php settings_errors();?>
+
+	        <h2 class="nav-tab-wrapper">
+	        	<?php foreach ($navlinks as $key => $value) {
+			?>
+	        		<a href="?page=<?php echo $pagename; ?>&tab=<?php echo $key; ?>" class="nav-tab <?php echo $active_tab == $key ? 'nav-tab-active' : ''; ?>"><?php echo $value; ?></a>
+	        	<?php }
+
+		?>
+	        </h2>
+
+	    <?php echo $callbackfunction ?>
+
+	    </div><!-- /.wrap -->
+	<?php
+}
 
 	/**
 	 * Get Wp Global Post Object

@@ -7,9 +7,9 @@
                 <h3>Support Further Development</h3>
 
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                    <input type="hidden" name="business" value="dan@bayareawebpro.com">
+                    <input type="hidden" name="business" value="myhishamad2@gmail.com">
                     <input type="hidden" name="cmd" value="_donations">
-                    <input type="hidden" name="item_name" value="WP Lumen Framework">
+                    <input type="hidden" name="item_name" value="Larash Framework">
                     <input type="hidden" name="item_number" value="Developer Donation">
                     <input type="hidden" name="currency_code" value="USD">
                     <button type="submit" name="submit" class="button button-primary button-hero">Donate</button>
@@ -17,12 +17,27 @@
                          src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
                 </form>
 
-                <p>or, <a href="https://github.com/bayareawebpro/wp-lumen-plugin-framework" target="_blank">contribute on GitHub!</a></p>
+                <p>or, <a href="https://github.com/itsho15/larash" target="_blank">contribute on GitHub!</a></p>
+            </div>
+
+            <div class="welcome-panel-column">
+                <h3>Where To Add Your config</h3>
+                <ul>
+
+                    <li><span class="dashicons dashicons-media-document"></span>CodeStar Framework <p>Go To Plugin Dir (larash) > Plugins > Codestar > config.php file</p></li>
+                    <li><span class="dashicons dashicons-media-document"></span>Metaboxes Framework <p> Go To Plugin Dir (larash) > Plugins > meta-box > metaboxes-config.php file</p></li>
+                    <li><span class="dashicons dashicons-media-document"></span>custom post-types/taxonomies <p> Go To Plugin Dir (larash) > config > theme.php file you can register Unlimited Custom Post-types/taxonomies and more options</p></li>
+
+                    <li><span class="dashicons dashicons-media-document"></span>Very important<p> please look at the Folders in App Folder > Like (Helpers,Models,Providers,Utilities) To UnderStand The Framework and How it works </p></li>
+                </ul>
+
             </div>
             <div class="welcome-panel-column">
                 <h3>Documentation</h3>
                 <ul>
                     <li><a target="_blank" href="https://lumen.laravel.com/docs/5.5"><span class="dashicons dashicons-media-document"></span> Lumen Docs</a></li>
+                    <li><a target="_blank" href="http://codestarframework.com/documentation"><span class="dashicons dashicons-media-document"></span> CodeStar Docs</a></li>
+                    <li><a target="_blank" href="https://docs.metabox.io"><span class="dashicons dashicons-media-document"></span> Metaboxes Docs</a></li>
                     <li><a target="_blank" href="https://laravel.com/docs/5.5"><span class="dashicons dashicons-media-document"></span> Laravel Docs</a></li>
                     <li><a target="_blank" href="https://laravel.com/docs/5.5/mix"><span class="dashicons dashicons-media-document"></span> Laravel Mix Docs</a></li>
                     <li><a target="_blank" href="https://vuejs.org/v2/api/"><span class="dashicons dashicons-media-document"></span> Vue.js Docs</a></li>

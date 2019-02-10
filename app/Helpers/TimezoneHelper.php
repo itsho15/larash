@@ -1,4 +1,5 @@
-<?php namespace App\Helpers;
+<?php
+namespace App\Helpers;
 
 class TimezoneHelper {
 
@@ -8,15 +9,15 @@ class TimezoneHelper {
 	 */
 	public static function getOffset() {
 		$timezone = get_option('timezone_string');
-		if(!empty($timezone)){
+		if (!empty($timezone)) {
 			return $timezone;
-		}else {
-			$offset = get_option( 'gmt_offset' );
-			$amount = abs( $offset );
+		} else {
+			$offset = get_option('gmt_offset');
+			$amount = abs($offset);
 			if ($offset > 0) {
-				$offset = sprintf( '+%02d:%02d', $amount, 0 );
+				$offset = sprintf('+%02d:%02d', $amount, 0);
 			} else {
-				$offset = sprintf( '-%02d:%02d', $amount, 0 );
+				$offset = sprintf('-%02d:%02d', $amount, 0);
 			}
 			return $offset;
 		}
