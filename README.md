@@ -25,11 +25,8 @@ WP Lumen Plugin Framework provides an architecture that allows rapid development
 * JSON Config Flat-File Store
 * CodeStar Theme Options Framework
 * Metaboxes Framework
-* Custom Widgets
-* Shortcodes
 * Menus
 * Routes Ready
-* Shortcodes
 
 ## Setup
 
