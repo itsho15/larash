@@ -17,9 +17,8 @@ WP Lumen Plugin Framework provides an architecture that allows rapid development
 * Database Table Mangement (wee wiki example)
 * Activate, Deactive, Uninstall Schema Integration
 * JSON Config Flat-File Store
-
-## Live Demo
-http://wplumen.bayareawebpro.com
+* CodeStar Theme Options Framework
+* Metaboxes Framework
 
 ## Setup
 
@@ -32,14 +31,5 @@ Once you have run the composer installer, upload and "Activate" the plugin in yo
 ## Documentation
 
 In-Progress, please bookmark the Wiki, I will be adding new How-To's when possible.
-https://github.com/bayareawebpro/wp-lumen-plugin-framework/wiki
+https://github.com/itsho15/larash/wiki
 
-Api Docs: https://cdn.rawgit.com/bayareawebpro/wp-lumen-plugin-framework/99bc7e1c/_docs/build/index.html
-
-## Slack Chat
-https://join.slack.com/t/wplumen/shared_invite/enQtMzAwNDgwMDQzODI3LWFlOTJmMWMxYjA2ZTE0YjRhMDk0N2QwZDJjZWZmYTEzODcxZWRiZWVlODQwNTE1ZjgxZjAzMjcyNzg3NGJjNjg
-
-## How to Contribute
-
-Make a pull-request or open a new issue with a link to a gist snippet.
-https://github.com/bayareawebpro/wp-lumen-plugin-framework/issues
