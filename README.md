@@ -19,8 +19,8 @@ WP Lumen Plugin Framework provides an architecture that allows rapid development
 * WordpressServiceProvider
 * Debugbar Integration
 * WP & Lumen Helpers
-* WpCron Integration (wee wiki example)
-* Database Table Mangement (wee wiki example)
+* WpCron Integration
+* Database Table Mangement
 * Activate, Deactive, Uninstall Schema Integration
 * JSON Config Flat-File Store
 * CodeStar Theme Options Framework
