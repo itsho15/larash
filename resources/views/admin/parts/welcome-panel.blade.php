@@ -42,6 +42,7 @@
                     <li><a target="_blank" href="https://laravel.com/docs/5.5/mix"><span class="dashicons dashicons-media-document"></span> Laravel Mix Docs</a></li>
                     <li><a target="_blank" href="https://vuejs.org/v2/api/"><span class="dashicons dashicons-media-document"></span> Vue.js Docs</a></li>
                     <li><a target="_blank" href="https://github.com/axios/axios"><span class="dashicons dashicons-media-document"></span> Axios.js Docs</a></li>
+                    <li><a target="_blank" href="https://datatables.net/examples/index"><span class="dashicons dashicons-media-document"></span> Datatables Docs</a></li>
                 </ul>
             </div>
             <div class="welcome-panel-column welcome-panel-last">

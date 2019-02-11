@@ -164,18 +164,22 @@ class WordpressServiceProvider extends ServiceProvider {
 		$this->wpHelper
 			->enqueueStyle(
 				'lumen',
-				$this->lumenHelper->asset('resources/assets/build/example.css'),
+				$this->lumenHelper->asset('resources/assets/build/Main.css'),
 				array(),
 				'1.0.0',
 				'all'
 			)
 			->enqueueScript(
 				'lumen',
-				$this->lumenHelper->asset('resources/assets/build/example.js'),
+				$this->lumenHelper->asset('resources/assets/build/Main.js'),
 				array('jquery'),
 				'1.0.0',
 				true
-			);
+			)
+
+		// admin
+			->enqueueStyle('datatablecss', $this->lumenHelper->asset('resources/assets/src/admin/datatables/datatables.min.css'), array(), '1.0.0', 'all', 'admin')
+			->enqueueScript('datatablejs', $this->lumenHelper->asset('resources/assets/src/admin/datatables/datatables.min.js'), array('jquery'), '1.0.0', true, 'admin');
 
 	}
 }

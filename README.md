@@ -27,6 +27,8 @@ Larash Plugin Framework provides an architecture that allows rapid development o
 * Metaboxes Framework
 * Menus
 * Routes Ready
+* yajra datatables
+
 
 ## Setup
 
