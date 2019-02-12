@@ -57,6 +57,11 @@ class WordpressServiceProvider extends ServiceProvider {
 				\App\Widgets\ExampleFrontEndWidget::class
 			);
 
+		/** Add Plugin Links to Admin > Plugins Page Entry **/
+		$this->wpHelper
+			->addPluginLinks(array(
+				'<a href="admin.php?page=lumen_page">Settings</a>',
+			));
 		/** Add Admin Bar Nodes **/
 		$this->wpHelper
 			->addAdminBarNode(

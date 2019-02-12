@@ -89,7 +89,7 @@ class WpHelper {
 		}
 
 		add_filter('plugin_action_links', function ($existing_links, $plugin_basename) use ($plugin_links) {
-			$pluginPath = plugin_basename($this->lumenHelper->base_path($this->lumenHelper->config('app.plugin_path')));
+			$pluginPath = plugin_basename($this->lumenHelper->base_path($this->lumenHelper->config('app.plugin_file')));
 			if ($plugin_basename == $pluginPath) {
 				foreach ($plugin_links as $link) {
 					array_unshift($existing_links, $link);
